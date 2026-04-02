@@ -1,0 +1,103 @@
+LLM = Large Langauge Model
+
+AI is just a Stack
+
+| - UI - Bottle
+|        JavaScript
+|        CS
+|        HTML
+|
+| - Python - Source Code
+|
+| - LLM - ollama, gtp-oss, perplexity, ... etc
+|
+| - APIS (GET, POST)
+| - Data Stores (buckets or folders)
+| - Record Stores
+|
+| - RAG Pipieline
+|
+| - Database - SQL
+|              Vector
+
+Relational databases:
+Designed to only store the minimum amount of data that is needed in that tabl
+No unecessary duplicated data between relational tables
+We can do this by using primary keys to relate to other tables that stores the additional data
+
+SQL Statements:
+
+JOIN - Join two keys from two seperate tables that are the same - links the tables together
+
+ALTER - Modify tables and change schemas
+
+SQL stands for Structured Query Langauge:
+
+- Capitalisation does not matter
+- ; is the delimiter, denotes new line
+- 
+
+You DO NOT need to install sqlite, it comes with Python as installed
+can check if sql lite is installed using the following command
+[ python -c "import sqlite3; print(sqlite3.sqlite_version)" ] 
+
+RDMS = Relational Database Management Systems
+*the software that runs a databases
+
+The layout of a Relational Datbase is called a schemas
+
+sqlite is an easy to use RD, requires no user accounts or encryption built in
+They can even be opened with a text editor
+
+Pythons sqlite3 is a library, not an executable.
+So it can be used within Python but not by windows via the terminal
+If you want to use sqlite using windows, you need to install SQLite CLI tools and add the executable to PATH when running the python script 
+
+The database servers you need to interact with them seperately
+
+sqlite does not save database unless you do this specifically
+
+When you are outside the database checking schema, tables etc. you use different commands
+
+strict function allows you to force the user to enter the right datattypes to cells in the database
+
+sqlite does not support foreign keys
+
+Tuples need a comma at the end of the last value, even if there is only one
+
+% are for wildcards in sqlite
+
+ollama request:
+
+In Python you can do a 'Type annotation' or type hint
+
+It is a way of returning an object of a class as a variable.
+
+It never actually calls the class, so never runs __init__
+It just annotates the object with that class name
+
+The annotation is stored as metadata, nothing actually happens to it
+If you want to check that the object is of the right class as annotated, you can do this manually
+
+Cursors:
+Cursors act as readers for the user to read over rows in a database table.
+The cursor - executes SQL, fetches rows, tracks positions
+Cursors are explicity open or closed
+
+Cursors solve three main problems
+- stream data so you dont have to load everything at once
+- track where you are in a table
+- allow for a single interface across a whole database
+
+ORM - Object Relational Mapping
+ORMs hide cursors
+
+All database operations must go through a connection, so a connection is needed for active sessions
+This means the database connection must also be closed at the end of your session
+When closing the connection the following things are done 
+- Database is locked
+- Releases File Handlers
+- Releases memory used by SQLLite
+
+If you do not close the connection then the database could be left locked for future code to fail
+
